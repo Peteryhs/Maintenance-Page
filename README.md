@@ -3,9 +3,13 @@ This repository contains a unique, interactive maintenance page written in HTML,
 
 # Features
 
-Single-File HTML: Easy to implement and manage, this maintenance page is contained in a single HTML file.
-Interactive Blurb: A unique feature that follows the user's cursor around the screen, adding an element of fun and interactivity to the maintenance page.
-Engaging Design: The page is designed to be visually appealing, ensuring that your users have a positive experience even during website downtime.
+- **Single-File HTML:** Easy to implement and manage, this maintenance page is contained in a single HTML file.
+- **Interactive Blurb:** A unique feature that follows the user's cursor around the screen, adding an element of fun and interactivity to the maintenance page.
+- **Engaging Design:** The page is designed to be visually appealing, ensuring that your users have a positive experience even during website downtime.
+
+## Live Demo
+
+You can view a live demo of the Interactive Maintenance Page on CodePen: [Interactive Maintenance Page Demo](https://codepen.io/peteryhs/pen/poYJrmJ)
 
 # Usage
 To use this maintenance page, simply replace your website's index.html file with the HTML file from this repository during periods of maintenance or downtime. Once your site is ready to go live again, replace the maintenance page with your original index.html file.
@@ -14,3 +18,5 @@ P.S A few easter eggs are in the site, try finding them!
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+*Awell-designed maintenance page can make a big difference in user experience. This Interactive Maintenance Page is a great way to keep your users entertained and informed during website downtime.*
