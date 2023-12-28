@@ -11,3 +11,6 @@ Engaging Design: The page is designed to be visually appealing, ensuring that yo
 To use this maintenance page, simply replace your website's index.html file with the HTML file from this repository during periods of maintenance or downtime. Once your site is ready to go live again, replace the maintenance page with your original index.html file.
 
 P.S A few easter eggs are in the site, try finding them!
+
+# License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
