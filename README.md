@@ -13,4 +13,4 @@ To use this maintenance page, simply replace your website's index.html file with
 P.S A few easter eggs are in the site, try finding them!
 
 # License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
