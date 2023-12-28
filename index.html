@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Under Maintenance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+        <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #000000;
+            overflow: hidden;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Add this line */
+        }
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: transparent;
+            z-index: 2;
+        }
+        h1 {
+            position: relative;
+            font-size: 2em;
+            color: #ffffff;
+            z-index: 3;
+        }
+        a {
+            position: relative;
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 20px;
+            z-index: 3;
+        }
+        #block-container {
+            position: absolute;
+            width: 800px; /* Add this line */
+            height: 650px; /* Add this line */
+            z-index: 1;
+        }
+        #block {
+            width: 850px; /* Adjust this value to make the ellipse more round */
+            height: 675px; /* Adjust this value to make the ellipse more round */
+            background: linear-gradient(45deg, rgb(29, 14, 236), rgb(0, 247, 255)); /* Dark blue to light blue gradient */
+            border-radius: 50%;
+            transition: all 0.1s ease;
+            pointer-events: none;
+            animation: spin 30s linear infinite; /* Adjusted to 5 seconds per revolution */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1), 0 0 100px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blur {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            backdrop-filter: blur(16vmax);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="blur"></div>
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="text-content">
+            <h1>The <span class="effect" data-value="website">website</span> is currently under development. Stay tuned!</h1>
+            <div>
+                <a href="https://github.com/Peteryhs11/Website"><span class="effect" data-value="View on GitHub">View on GitHub</span></a>
+            </div>
+        </div>
+    </div>
+  
+    <div id="block-container">
+        <div id="block"></div>
+    </div>
+    <script>
+        const blockContainer = document.getElementById('block-container');
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        const speed = 0.1; // Halve this value to make the delay twice as long
+
+        document.addEventListener('mousemove', function(e) {
+            targetX = e.pageX - blockContainer.offsetWidth / 2;
+            targetY = e.pageY - blockContainer.offsetHeight / 2;
+        });
+
+        function moveBlock() {
+            currentX += (targetX - currentX) * speed;
+            currentY += (targetY - currentY) * speed;
+
+            blockContainer.style.left = currentX + 'px';
+            blockContainer.style.top = currentY + 'px';
+
+            requestAnimationFrame(moveBlock);
+        }
+        moveBlock();
+    </script>
+<script>
+    /* -- Text effect -- */
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let interval = null;
+
+    document.querySelectorAll(".effect").forEach(element => {
+        element.onmouseover = event => {  
+            let iteration = 0;
+
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                event.target.innerText = event.target.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if(index < iteration) {
+                            return event.target.dataset.value[index];
+                        }
+
+                        return letters[Math.floor(Math.random() * 26)]
+                    })
+                    .join("");
+
+                if(iteration >= event.target.dataset.value.length){ 
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+        }
+    });
+</script>
+</body>
+</html>
